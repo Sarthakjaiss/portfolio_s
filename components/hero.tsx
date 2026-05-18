@@ -13,8 +13,8 @@ const roles = [
 ]
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/Sarthakjaiss", label: "GitHub" },
+  { icon: Linkedin, href: "linkedin.com/in/sarthak-jaiswal-a0321a244", label: "LinkedIn" },
   { icon: Twitter, href: "#", label: "Twitter" },
 ]
 
