@@ -103,7 +103,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             {/* Resume Button */}
             <motion.a
-              href="/resume-sarthak-jaiswal.pdf"
+              href="../public/resume-sarthak-jaiswal.pdf"
               download="Sarthak_Jaiswal_Resume.pdf"
               data-cursor-hover
               whileHover={{ scale: 1.05 }}
@@ -178,7 +178,7 @@ export function Navbar() {
 
               {/* Mobile Resume Button */}
               <motion.a
-                href="/resume-sarthak-jaiswal.pdf"
+                href="../public/resume-sarthak-jaiswal.pdf"
                 download="Sarthak_Jaiswal_Resume.pdf"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
