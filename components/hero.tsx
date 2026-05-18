@@ -117,7 +117,7 @@ export function Hero() {
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
           </motion.button>
           <motion.a
-            href="../public/resume-sarthak-jaiswal.pdf"
+            href="/resume-sarthak-jaiswal.pdf"
             download
             data-cursor-hover
             whileHover={{ scale: 1.05 }}
