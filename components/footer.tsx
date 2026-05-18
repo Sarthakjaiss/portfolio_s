@@ -77,18 +77,28 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-8">
-            {["LinkedIn", "GitHub", "Twitter"].map((link) => (
-              <a
-                key={link}
-                href="#"
-                data-cursor-hover
-                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
+         {/* Links */}
+<div className="flex gap-8">
+  <a
+    href="https://github.com/Sarthakjaiss/"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-cursor-hover
+    className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
+  >
+    GitHub
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/sarthak-jaiswal-a0321a244/"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-cursor-hover
+    className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
+  >
+    LinkedIn
+  </a>
+</div>
 
           {/* Copyright */}
           <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()}</p>

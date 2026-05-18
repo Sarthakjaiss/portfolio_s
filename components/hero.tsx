@@ -14,7 +14,7 @@ const roles = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Sarthakjaiss", label: "GitHub" },
-  { icon: Linkedin, href: "linkedin.com/in/sarthak-jaiswal-a0321a244", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://linkedin.com/in/sarthak-jaiswal-a0321a244", label: "LinkedIn" },
   { icon: Twitter, href: "#", label: "Twitter" },
 ]
 
@@ -117,7 +117,7 @@ export function Hero() {
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
           </motion.button>
           <motion.a
-            href="/resume.pdf"
+            href="../public/resume-sarthak-jaiswal.pdf"
             download
             data-cursor-hover
             whileHover={{ scale: 1.05 }}
