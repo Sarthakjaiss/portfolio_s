@@ -7,8 +7,17 @@ export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Detect mobile screen
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
       setIsVisible(true)
@@ -38,6 +47,7 @@ export function CustomCursor() {
     document.addEventListener("mouseout", handleHoverEnd)
 
     return () => {
+      window.removeEventListener("resize", checkMobile)
       window.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseenter", handleMouseEnter)
       document.removeEventListener("mouseleave", handleMouseLeave)
@@ -45,6 +55,9 @@ export function CustomCursor() {
       document.removeEventListener("mouseout", handleHoverEnd)
     }
   }, [])
+
+  // Hide cursor on mobile
+  if (isMobile) return null
 
   return (
     <>
@@ -59,6 +72,7 @@ export function CustomCursor() {
         }}
         transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
       />
+
       {/* Hover ring */}
       <motion.div
         className="fixed top-0 left-0 w-12 h-12 border border-white rounded-full pointer-events-none z-[10000] mix-blend-difference"
