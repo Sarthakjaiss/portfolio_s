@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useState } from "react"
 import { Send, Mail, MapPin, Phone } from "lucide-react"
 
 export function Contact() {
@@ -12,21 +11,17 @@ export function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const formRef = useRef(null)
-  const isInView = useInView(formRef, { once: true, margin: "-100px" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     setIsSubmitting(false)
     setIsSubmitted(true)
     setFormData({ name: "", email: "", message: "" })
 
-    // Reset success message after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000)
   }
 
@@ -44,43 +39,21 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="relative py-32 px-8 md:px-12">
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="mb-16"
-      >
+    <section id="contact" className="relative py-24 px-8 md:px-12">
+      <div className="mb-12">
         <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">07 — CONNECT</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">Get In Touch</h2>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-        {/* Contact Info */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <p className="font-sans text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you. Let&apos;s create something
-            extraordinary together.
+            Have a project in mind or want to collaborate? I&apos;d love to hear from you. Let&apos;s create something extraordinary together.
           </p>
 
           <div className="space-y-6">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-4 group"
-              >
+            {contactInfo.map((info) => (
+              <div key={info.label} className="flex items-center gap-4 group">
                 <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors duration-300">
                   <info.icon className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                 </div>
@@ -88,21 +61,12 @@ export function Contact() {
                   <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{info.label}</p>
                   <p className="font-sans text-foreground">{info.value}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Contact Form */}
-        <motion.form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
-        >
-          {/* Name Field */}
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
             <label htmlFor="name" className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-2 block">
               Name
@@ -119,7 +83,6 @@ export function Contact() {
             />
           </div>
 
-          {/* Email Field */}
           <div className="relative">
             <label htmlFor="email" className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-2 block">
               Email
@@ -136,7 +99,6 @@ export function Contact() {
             />
           </div>
 
-          {/* Message Field */}
           <div className="relative">
             <label htmlFor="message" className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-2 block">
               Message
@@ -153,46 +115,29 @@ export function Contact() {
             />
           </div>
 
-          {/* Submit Button */}
-          <motion.button
+          <button
             type="submit"
             disabled={isSubmitting}
-            data-cursor-hover
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="relative w-full mt-8 px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent hover:bg-white hover:text-black transition-colors duration-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+            className="relative w-full mt-8 px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent hover:bg-white hover:text-black transition duration-300 transform disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 flex items-center justify-center gap-3"
           >
             {isSubmitting ? (
               <>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
-                />
+                <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                 Sending...
               </>
             ) : isSubmitted ? (
-              <>
-                <span className="text-green-500">Message Sent!</span>
-              </>
+              <span className="text-green-500">Message Sent!</span>
             ) : (
               <>
                 Send Message
                 <Send className="w-4 h-4" />
               </>
             )}
-          </motion.button>
-        </motion.form>
+          </button>
+        </form>
       </div>
 
-      {/* Decorative Element */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent origin-left"
-      />
+      <div className="mt-16 h-px bg-linear-to-r from-transparent via-white/20 to-transparent origin-left" />
     </section>
   )
 }

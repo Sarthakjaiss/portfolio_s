@@ -59,7 +59,7 @@ export function About() {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-16 mx-8 md:mx-12 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent origin-left"
+        className="mt-16 mx-8 md:mx-12 h-px bg-linear-to-r from-transparent via-white/20 to-transparent origin-left"
       />
     </section>
   )

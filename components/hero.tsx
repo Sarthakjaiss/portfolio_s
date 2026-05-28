@@ -84,7 +84,7 @@ export function Hero() {
         >
           <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">01 — HELLO, I&apos;M</p>
           <h1 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance mb-4">
-            <span className="bg-gradient-to-r from-white via-white to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white via-white to-accent bg-clip-text text-transparent">
               Sarthak Jaiswal
             </span>
           </h1>

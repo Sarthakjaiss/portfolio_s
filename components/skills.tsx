@@ -18,7 +18,7 @@ import {
 interface Skill {
   name: string
   level: number
-  icon: React.ElementType
+  icon: React.ComponentType<React.ComponentProps<"svg">>
 }
 
 interface SkillCategory {
@@ -86,7 +86,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
       </div>
       <div className="h-1 bg-white/10 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-accent to-accent/50 rounded-full"
+          className="h-full bg-linear-to-r from-accent to-accent/50 rounded-full"
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : {}}
           transition={{ duration: 1, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -106,10 +106,10 @@ function SkillCard({ category, categoryIndex }: { category: SkillCategory; categ
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: categoryIndex * 0.15 }}
-      className="relative p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm hover:border-white/20 transition-colors duration-500"
+      className="relative p-6 md:p-8 rounded-2xl bg-white/2 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-colors duration-500"
     >
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-accent/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
       <h3 className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-6 uppercase">{category.title}</h3>
 
@@ -124,14 +124,14 @@ function SkillCard({ category, categoryIndex }: { category: SkillCategory; categ
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-32 px-8 md:px-12">
+    <section id="skills" className="relative py-24 px-8 md:px-12">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-16"
+        className="mb-12"
       >
         <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">05 — EXPERTISE</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">Technical Arsenal</h2>
@@ -150,7 +150,7 @@ export function Skills() {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent origin-left"
+        className="mt-16 h-px bg-linear-to-r from-transparent via-white/20 to-transparent origin-left"
       />
     </section>
   )
