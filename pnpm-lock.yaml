@@ -192,6 +192,9 @@ importers:
       '@types/three':
         specifier: ^0.184.1
         version: 0.184.1
+      baseline-browser-mapping:
+        specifier: ^2.10.30
+        version: 2.10.30
       postcss:
         specifier: ^8.5
         version: 8.5.14
