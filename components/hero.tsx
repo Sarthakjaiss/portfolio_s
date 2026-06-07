@@ -84,7 +84,7 @@ export function Hero() {
       {/* Typography Overlay */}
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-10 h-full flex flex-col justify-between max-w-7xl mx-auto p-8 md:p-12 lg:px-16 lg:py-24 md:pr-[28%] lg:pr-[32%] xl:pr-[36%]"
+        className="relative z-10 h-full flex flex-col justify-between max-w-7xl mx-auto p-8 md:p-12 lg:px-16 lg:py-24 md:pr-[30%] lg:pr-[34%] xl:pr-[38%]"
       >
         <div className="max-w-3xl">
           <motion.div
@@ -114,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center mx-auto"
+            className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center mx-auto w-full max-w-[28rem]"
           >
             <motion.button
               data-cursor-hover
@@ -143,7 +143,7 @@ export function Hero() {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-16 md:mt-0 md:absolute md:right-8 md:bottom-12 md:text-right md:items-end md:flex md:flex-col md:max-w-xs"
+          className="mt-16 md:mt-0 md:absolute md:right-8 md:bottom-12 md:text-right md:items-end md:flex md:flex-col md:max-w-xs lg:right-10 lg:bottom-14"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">CRAFT</p>
           <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance leading-tight">
