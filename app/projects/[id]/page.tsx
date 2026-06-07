@@ -89,23 +89,19 @@ export default function ProjectDetail() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative h-64 md:h-72 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-colors duration-300"
+                className="group relative h-48 md:h-64 lg:h-72 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-colors duration-300"
               >
-                <div className="relative w-full h-full bg-gradient-to-br from-white/5 to-white/1 flex items-center justify-center">
-                  <div className="w-full h-full bg-white/5 flex items-center justify-center">
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground">Image {index + 1}</p>
-                      <p className="text-xs text-muted-foreground mt-1">Add your project screenshot here</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0">
+                  {/* Use Image paths from lib/projects.ts; will render if provided */}
+                  <img
+                    src={image}
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </motion.div>
             ))}
           </div>
-
-          <p className="text-sm text-muted-foreground mt-8 p-4 bg-white/5 border border-white/10 rounded-lg">
-            💡 Replace the image paths in <code className="bg-white/10 px-2 py-1 rounded text-accent">lib/projects.ts</code> with your actual project screenshot URLs.
-          </p>
         </motion.div>
       </section>
 

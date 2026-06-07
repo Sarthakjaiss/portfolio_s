@@ -57,7 +57,7 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-20 transition-all duration-500 ${
           isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : ""
         }`}
       >

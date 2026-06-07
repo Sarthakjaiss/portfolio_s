@@ -68,7 +68,7 @@ export function Hero() {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#050505] pt-20 md:pt-24">
+    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#050505] pt-16 md:pt-20">
       {/* 3D Sphere Background */}
       <div className="absolute inset-0">
         <SentientSphere />
@@ -104,7 +104,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col md:flex-row gap-4"
+          className="md:absolute md:top-1/2 left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 flex flex-col md:flex-row gap-4"
         >
           <motion.button
             data-cursor-hover
