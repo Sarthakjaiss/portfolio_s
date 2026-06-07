@@ -68,7 +68,7 @@ export function Hero() {
   }
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-[#050505]">
+    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#050505] pt-20 md:pt-24">
       {/* 3D Sphere Background */}
       <div className="absolute inset-0">
         <SentientSphere />

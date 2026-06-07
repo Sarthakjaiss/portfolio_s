@@ -89,11 +89,7 @@ export function Navbar() {
                 >
                   <span className="text-accent mr-1">0{index + 1}</span>
                   {link.label.toUpperCase()}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
-                      activeSection === link.href.replace("#", "") ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
+                  
                 </button>
               </li>
             ))}
