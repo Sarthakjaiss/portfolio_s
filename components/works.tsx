@@ -2,7 +2,9 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Github } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { projectsData } from "@/lib/projects"
 
 interface Project {
   title: string
@@ -12,46 +14,13 @@ interface Project {
   year: string
   githubUrl: string
   features: string[]
+  id: string
 }
 
-const projects: Project[] = [
-  {
-    title: "FitQuest",
-    description: "AI-powered fitness application that creates personalized workout and diet plans using machine learning algorithms.",
-    tags: ["React", "Node.js", "MongoDB", "AI/ML"],
-    image: "/abstract-neural-network-visualization-dark-theme.jpg",
-    year: "2024",
-    githubUrl: "#",
-    features: ["Personalized workout plans", "AI diet recommendations", "Progress tracking", "Social features"],
-  },
-  {
-    title: "Bella Vista",
-    description: "Elegant restaurant website featuring online reservations, menu showcase, and seamless user experience.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive"],
-    image: "/futuristic-data-dashboard-dark-minimal.jpg",
-    year: "2024",
-    githubUrl: "#",
-    features: ["Online reservations", "Interactive menu", "Gallery showcase", "Contact integration"],
-  },
-  {
-    title: "Task Manager",
-    description: "Full-featured productivity application with CRUD operations, categories, and responsive design.",
-    tags: ["React", "TypeScript", "Tailwind", "LocalStorage"],
-    image: "/abstract-memory-storage-visualization.jpg",
-    year: "2023",
-    githubUrl: "#",
-    features: ["Task CRUD operations", "Category management", "Due date reminders", "Search and filter"],
-  },
-  {
-    title: "Password Manager",
-    description: "Secure password management application with encryption, password generation, and cloud sync capabilities.",
-    tags: ["React", "Node.js", "MongoDB", "Encryption"],
-    image: "/sound-wave-visualization-dark-theme.jpg",
-    year: "2023",
-    githubUrl: "#",
-    features: ["AES encryption", "Password generator", "Secure vault", "Cross-device sync"],
-  },
-]
+const projects: Project[] = projectsData.map(p => ({
+  ...p,
+  image: "/abstract-neural-network-visualization-dark-theme.jpg"
+}))
 
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags)))
 
@@ -71,7 +40,7 @@ export function Works() {
         transition={{ duration: 0.8 }}
         className="mb-12"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">04 — SELECTED WORKS</p>
+        <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-4">04 — SELECTED WORKS</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-6">Project Showcase</h2>
 
         <div className="flex flex-wrap gap-2">
@@ -113,7 +82,7 @@ export function Works() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: index * 0.06 }}
-            className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8 transition-all duration-300"
+            className="group overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-6 md:p-8 transition-all duration-300"
           >
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -146,11 +115,20 @@ export function Works() {
                 ))}
               </div>
 
-              <div className="mt-4">
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-white/20 rounded-full font-mono text-xs tracking-wider text-foreground hover:border-accent hover:text-accent transition-colors duration-300"
+                >
+                  View Project
+                  <ExternalLink className="w-3 h-3" />
+                </Link>
                 <a
                   href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-cursor-hover
-                  className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-foreground hover:text-accent transition-colors duration-300"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-white/20 rounded-full font-mono text-xs tracking-wider text-foreground hover:border-accent hover:text-accent transition-colors duration-300"
                 >
                   GitHub <Github className="w-3 h-3" />
                 </a>

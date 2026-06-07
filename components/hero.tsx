@@ -14,8 +14,8 @@ const roles = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Sarthakjaiss", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/sarthak-jaiswal-a0321a244", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/sarthak-jaiswal-a0321a244", label: "LinkedIn" },
+  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
 ]
 
 export function Hero() {
@@ -82,7 +82,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">01 — HELLO, I&apos;M</p>
+          <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2">01 — HELLO, I&apos;M</p>
           <h1 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance mb-4">
             <span className="bg-linear-to-r from-white via-white to-accent bg-clip-text text-transparent">
               Sarthak Jaiswal

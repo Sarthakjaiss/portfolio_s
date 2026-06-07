@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Send, Mail, MapPin, Phone } from "lucide-react"
+import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,18 +11,38 @@ export function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", message: "" })
+      const data = await response.json()
 
-    setTimeout(() => setIsSubmitted(false), 3000)
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message")
+      }
+
+      setIsSubmitted(true)
+      setFormData({ name: "", email: "", message: "" })
+
+      setTimeout(() => setIsSubmitted(false), 3000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+      console.error("Contact form error:", err)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,10 +52,13 @@ export function Contact() {
     }))
   }
 
+  const whatsappLink = `https://wa.me/919336051527?text=Hi%20Sarthak,%20I%20would%20like%20to%20discuss%20a%20project%20with%20you.`
+
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "sarthakjaiswal91@gmail.com" },
-    { icon: MapPin, label: "Location", value: "Lucknow, Uttar Pradesh" },
-    { icon: Phone, label: "Phone", value: "+91 9336051527" },
+    { icon: Mail, label: "Email", value: "sarthakjaiswal91@gmail.com", href: "mailto:sarthakjaiswal91@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+91 9336051527", href: "tel:+919336051527" },
+    { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: whatsappLink },
+    { icon: MapPin, label: "Location", value: "Lucknow, Uttar Pradesh", href: "#" },
   ]
 
   return (
@@ -53,7 +76,13 @@ export function Contact() {
 
           <div className="space-y-6">
             {contactInfo.map((info) => (
-              <div key={info.label} className="flex items-center gap-4 group">
+              <a
+                key={info.label}
+                href={info.href}
+                target={info.label === "WhatsApp" ? "_blank" : undefined}
+                rel={info.label === "WhatsApp" ? "noopener noreferrer" : undefined}
+                className="flex items-center gap-4 group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+              >
                 <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors duration-300">
                   <info.icon className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                 </div>
@@ -61,12 +90,18 @@ export function Contact() {
                   <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{info.label}</p>
                   <p className="font-sans text-foreground">{info.value}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+              <p className="text-sm text-red-400">{error}</p>
+            </div>
+          )}
+
           <div className="relative">
             <label htmlFor="name" className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-2 block">
               Name
