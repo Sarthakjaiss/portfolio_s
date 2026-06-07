@@ -81,6 +81,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="mb-8"
         >
           <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2">HELLO, I&apos;M</p>
           <h1 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance mb-4">
@@ -104,7 +105,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="md:absolute md:top-1/2 left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 flex flex-col md:flex-row gap-4"
+          className="flex flex-col md:flex-row gap-4 mt-6 md:mt-12 self-center mb-12 md:mb-0 z-20"
         >
           <motion.button
             data-cursor-hover
