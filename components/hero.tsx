@@ -68,20 +68,30 @@ export function Hero() {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#050505] pt-16 md:pt-20">
-      {/* 3D Sphere Background */}
-      <div className="absolute inset-0">
+    <section
+      ref={containerRef}
+      className="relative min-h-screen w-full overflow-hidden bg-[#050505] pt-16 md:pt-20"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), transparent 25%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02), transparent 15%)",
+      }}
+    >
+      {/* 3D Sphere Background - constrained to right half on larger screens */}
+      <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none opacity-70">
         <SentientSphere />
       </div>
 
-      {/* Typography Overlay */}
-      <motion.div style={{ opacity, scale }} className="relative z-10 h-full flex flex-col justify-between p-8 md:p-12 md:px-12 md:py-20">
+      {/* Typography Overlay (two-column on md+) */}
+      <motion.div
+        style={{ opacity, scale }}
+        className="relative z-10 h-full grid grid-cols-1 md:grid-cols-2 items-center p-8 md:p-12 md:px-12 md:py-20 gap-6"
+      >
         {/* Top Left - Name & Role */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-8"
+          className="mb-6 md:mb-0"
         >
           <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2">HELLO, I&apos;M</p>
           <h1 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance mb-4">
@@ -105,7 +115,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col md:flex-row gap-4 mt-6 md:mt-12 self-center mb-12 md:mb-0 z-20"
+          className="flex flex-col md:flex-row gap-4 mt-6 md:mt-8 self-center md:self-start mb-8 md:mb-0 z-20"
         >
           <motion.button
             data-cursor-hover
@@ -134,10 +144,10 @@ export function Hero() {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="self-end text-right"
+          className="flex flex-col items-center md:items-end text-center md:text-right self-center"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">CRAFT</p>
-          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance">
+          <h2 className="font-sans text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-balance leading-tight">
             MERN STACK
             <br />
             <span className="italic">DEVELOPER</span>
