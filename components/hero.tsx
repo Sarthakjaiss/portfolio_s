@@ -84,24 +84,16 @@ export function Hero() {
       {/* Typography Overlay */}
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-10 h-full flex flex-col justify-between max-w-7xl mx-auto p-8 md:p-12 lg:px-16 lg:py-24 lg:pr-[35%]"
+        className="relative z-10 h-full flex flex-col justify-between max-w-7xl mx-auto p-8 md:p-12 lg:px-16 lg:py-24"
       >
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-4"
-          >
-            <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2">HELLO, I&apos;M</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mb-8"
           >
+            <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-2">HELLO, I&apos;M</p>
             <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance mb-4">
               <span className="bg-linear-to-r from-white via-white to-accent bg-clip-text text-transparent">
                 Sarthak Jaiswal
@@ -122,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex flex-col items-center sm:flex-row justify-center gap-4 mt-6 md:mt-8"
+            className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8"
           >
             <motion.button
               data-cursor-hover
@@ -151,7 +143,7 @@ export function Hero() {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="absolute right-8 top-1/2 hidden lg:flex flex-col items-end text-right -translate-y-1/2 max-w-[22rem]"
+          className="mt-16 md:mt-20 max-w-3xl"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">CRAFT</p>
           <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance leading-tight">
