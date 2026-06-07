@@ -109,48 +109,50 @@ export function Hero() {
               />
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center mx-auto"
-          >
-            <motion.button
-              data-cursor-hover
-              onClick={scrollToProjects}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent backdrop-blur-sm hover:bg-white hover:text-black transition-colors duration-500"
-            >
-              View Projects
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
-            </motion.button>
-            <motion.a
-              href="/resume-sarthak-jaiswal.pdf"
-              download
-              data-cursor-hover
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-black rounded-full font-mono text-sm tracking-widest uppercase hover:bg-accent transition-colors duration-500 text-center"
-            >
-              Download Resume
-            </motion.a>
-          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="w-full flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center"
+        >
+          <motion.button
+            data-cursor-hover
+            onClick={scrollToProjects}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent backdrop-blur-sm hover:bg-white hover:text-black transition-colors duration-500"
+          >
+            View Projects
+            <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
+          </motion.button>
+          <motion.a
+            href="/resume-sarthak-jaiswal.pdf"
+            download
+            data-cursor-hover
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-white text-black rounded-full font-mono text-sm tracking-widest uppercase hover:bg-accent transition-colors duration-500 text-center"
+          >
+            Download Resume
+          </motion.a>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-16 md:mt-20 max-w-3xl"
+          className="mt-16 md:mt-20 w-full flex justify-end"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">CRAFT</p>
-          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance leading-tight">
-            MERN STACK
-            <br />
-            <span className="italic">DEVELOPER</span>
-          </h2>
+          <div className="max-w-xl text-right">
+            <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">CRAFT</p>
+            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance leading-tight">
+              MERN STACK
+              <br />
+              <span className="italic">DEVELOPER</span>
+            </h2>
+          </div>
         </motion.div>
 
         {/* Social Media Icons - Left Side */}
