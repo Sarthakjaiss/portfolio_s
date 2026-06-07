@@ -121,9 +121,7 @@ export default function ProjectDetail() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 {project.about}
               </p>
-              <p className="text-sm text-muted-foreground italic">
-                Word count: {project.about.split(" ").length} / 100 words
-              </p>
+              
             </div>
 
             <div>
