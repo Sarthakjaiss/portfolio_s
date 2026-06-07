@@ -72,7 +72,6 @@ export function Navbar() {
             className="group flex items-center gap-2"
           >
             <span className="font-mono text-xs tracking-widest text-muted-foreground">PORTFOLIO</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-150 transition-transform duration-300" />
           </a>
 
           {/* Desktop Navigation */}
@@ -87,7 +86,6 @@ export function Navbar() {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <span className="text-accent mr-1">0{index + 1}</span>
                   {link.label.toUpperCase()}
                   
                 </button>
@@ -167,7 +165,6 @@ export function Navbar() {
                       : "text-muted-foreground"
                   }`}
                 >
-                  <span className="text-accent font-mono text-sm mr-2">0{index + 1}</span>
                   {link.label}
                 </motion.button>
               ))}

@@ -64,7 +64,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 px-8 md:px-12">
       <div className="mb-12">
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">07 — CONNECT</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">CONNECT</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">Get In Touch</h2>
       </div>
 

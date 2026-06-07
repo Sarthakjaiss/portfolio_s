@@ -133,7 +133,7 @@ export function Skills() {
         transition={{ duration: 0.8 }}
         className="mb-12"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">05 — EXPERTISE</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">EXPERTISE</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">Technical Arsenal</h2>
       </motion.div>
 

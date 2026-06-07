@@ -55,7 +55,7 @@ export function Certifications() {
   return (
     <section id="certifications" className="relative py-24">
       <div className="px-8 md:px-12 mb-10">
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">06 — CREDENTIALS</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">CREDENTIALS</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic">Certifications</h2>
       </div>
 

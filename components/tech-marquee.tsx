@@ -51,7 +51,7 @@ export function TechMarquee() {
   return (
     <section className="relative py-24 overflow-hidden md:py-32">
       <div className="px-8 md:px-12 mb-12">
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">05 — TECHNICAL ARSENAL</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">TECHNICAL ARSENAL</p>
       </div>
 
       <div className="space-y-4">

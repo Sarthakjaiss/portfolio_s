@@ -40,7 +40,7 @@ export function Works() {
         transition={{ duration: 0.8 }}
         className="mb-12"
       >
-        <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-4">04 — SELECTED WORKS</p>
+        <p className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground mb-4">SELECTED WORKS</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-6">Project Showcase</h2>
 
         <div className="flex flex-wrap gap-2">
